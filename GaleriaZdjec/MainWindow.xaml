@@ -1,0 +1,67 @@
+﻿<Window x:Class="GaleriaZdjec.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GaleriaZdjec"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ThreeDBorderWindow"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="800" Width="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF647671" Offset="0"/>
+                    <GradientStop Color="#FFB6F7E5" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF647671" Offset="0"/>
+                    <GradientStop Color="#FFB6F7E5" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Menu x:Name="MenuGorne" Background="Transparent" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <MenuItem Header="Plik" Padding="20,10" Foreground="White">
+                <MenuItem x:Name="MenuDodaj" Foreground="#FF6CB4C9" Header="Dodaj bieżący folder do ulubionych"  Click="MenuDodaj_Click"/>
+                <MenuItem x:Name="MenuUsun" Foreground="#FF6CB4C9" Header="Usuń" Click="MenuUsun_Click"/>
+                <MenuItem x:Name="MenuZmienNazwe" Foreground="#FF6CB4C9" Header="Zmień nazwę" Click="MenuZmienNazwe_Click"/>
+                <Separator/>
+                <MenuItem x:Name="MenuOdwiez" Foreground="#FF6CB4C9" Header="Odśwież" Click="MenuOdwiez_Click"/>
+                <Separator/>
+                <MenuItem x:Name="MenuKoniec" Foreground="#FF6CB4C9" Header="Koniec" Click="MenuKoniec_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuNapraw" Header="Napraw"  Padding="20,10" Foreground="White" Click="MenuNapraw_Click"/>
+            <MenuItem x:Name="MenuDrukuj" Header="Drukuj"  Padding="20,10" Foreground="White" Click="MenuDrukuj_Click"/>
+            <MenuItem x:Name="MenuEdycja" Header="Edycja"  Padding="20,10" Foreground="White" Click="MenuEdycja_Click"/>
+        </Menu>
+        <TreeView x:Name="TreeViewFoldery" BorderBrush="#FFBCD9F1" Grid.Row="1" BorderThickness="0,0,1,0" SelectedItemChanged="TreeViewFoldery_SelectedItemChanged">
+            <TreeViewItem x:Name="UlubioneFolderyItems" Header="Ulubione" IsExpanded="True"/>
+            <TreeViewItem x:Name="FolderyItems" Header="Foldery"/>
+        </TreeView>
+        <GridSplitter Grid.Row="1" Grid.Column="1" Width="2" Background="Transparent" ResizeBehavior="PreviousAndNext"/>
+        <ListBox x:Name="ObrazkiBox" SelectionChanged="ObrazkiBox_SelectionChanged" Grid.Row="1" Grid.Column="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Window>
